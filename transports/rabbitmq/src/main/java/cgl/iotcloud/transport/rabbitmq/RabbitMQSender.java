@@ -53,6 +53,8 @@ public class RabbitMQSender implements Manageable {
 
     public void start() {
         ConnectionFactory factory = new ConnectionFactory();
+        factory.setAutomaticRecoveryEnabled(true);
+        factory.setNetworkRecoveryInterval(5000);
         try {
             factory.setUri(url);
             if (executorService != null) {

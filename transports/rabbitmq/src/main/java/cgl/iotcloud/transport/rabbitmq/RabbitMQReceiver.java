@@ -47,6 +47,9 @@ public class RabbitMQReceiver implements Manageable {
     public void start() {
         try {
             ConnectionFactory factory = new ConnectionFactory();
+            factory.setAutomaticRecoveryEnabled(true);
+            factory.setNetworkRecoveryInterval(5000);
+
             factory.setUri(url);
             if (executorService != null) {
                 conn = factory.newConnection(executorService);
