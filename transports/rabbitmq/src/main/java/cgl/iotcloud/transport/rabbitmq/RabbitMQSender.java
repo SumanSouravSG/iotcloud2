@@ -65,7 +65,7 @@ public class RabbitMQSender implements Manageable {
 
             channel = conn.createChannel();
             channel.exchangeDeclare(exchangeName, "direct", false);
-            channel.queueDeclare(this.queueName, false, false, true, null);
+            channel.queueDeclare(this.queueName, false, false, false, null);
             channel.queueBind(queueName, exchangeName, routingKey);
 
             Thread t = new Thread(new Worker());

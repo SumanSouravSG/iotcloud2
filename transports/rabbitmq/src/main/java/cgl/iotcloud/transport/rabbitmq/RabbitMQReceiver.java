@@ -61,7 +61,7 @@ public class RabbitMQReceiver implements Manageable {
 
             if (exchangeName != null && routingKey != null) {
                 channel.exchangeDeclare(exchangeName, "direct", false);
-                channel.queueDeclare(this.queueName, false, false, true, null);
+                channel.queueDeclare(this.queueName, false, false, false, null);
                 channel.queueBind(queueName, exchangeName, routingKey);
             }
 

@@ -5,7 +5,6 @@ import cgl.iotcloud.core.transport.*;
 import cgl.iotcloud.transport.kafka.consumer.ConsumerConfig;
 import cgl.iotcloud.transport.kafka.consumer.KConsumer;
 import cgl.iotcloud.transport.kafka.consumer.ZkHosts;
-import com.google.common.collect.Lists;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
