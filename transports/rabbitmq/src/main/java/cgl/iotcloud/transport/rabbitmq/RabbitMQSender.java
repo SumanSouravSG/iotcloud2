@@ -102,11 +102,11 @@ public class RabbitMQSender implements Manageable {
                         MessageContext input = outQueue.take();
 
                         Map<String, Object> props = new HashMap<String, Object>();
-                        props.put(TransportConstants.SENSOR_ID, input.getSensorId());
 
                         for (Map.Entry<String, Object> e : input.getProperties().entrySet()) {
                             props.put(e.getKey(), e.getValue());
                         }
+                        props.put(TransportConstants.SENSOR_ID, input.getSensorId());
                         channel.basicPublish(exchangeName, routingKey,
                                 new AMQP.BasicProperties.Builder().headers(props).build(), input.getBody());
                     } catch (InterruptedException e) {
